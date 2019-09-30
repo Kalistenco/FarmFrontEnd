@@ -36,4 +36,8 @@ export class ChickensListComponent implements OnInit {
     this.router.navigate(['/chickens-create', this.rutaActiva.snapshot.params.id])
   }
 
+  updateChicken(chickenId){
+    this.router.navigate(['/chickens-update', this.rutaActiva.snapshot.params.id, chickenId])
+  }
+
 }

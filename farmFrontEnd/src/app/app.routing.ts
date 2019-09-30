@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'chickens-list', component: ChickensListComponent },
   { path: 'chickens-create/:id', component: ChickensCreateComponent },
   { path: 'chickens-list/:id', component: ChickensListComponent },
-  { path: 'chickens-update/:id', component: ChickensUpdateComponent }
+  { path: 'chickens-update/:id/:idc', component: ChickensUpdateComponent }
 ];
 
 @NgModule({

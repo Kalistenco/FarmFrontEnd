@@ -35,7 +35,7 @@ export class RestApiService {
   }
 
   deleteChicken(id): Observable<Chicken> {
-    return this.http.get<Chicken>(this.apiUrl + '/chickens/' + id);
+    return this.http.delete<Chicken>(this.apiUrl + '/chickens/' + id);
   }
 
   addChicken(id, chicken: Object): Observable<Object> {

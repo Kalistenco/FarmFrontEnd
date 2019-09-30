@@ -10,8 +10,9 @@ import { Chicken } from '../shared/chicken.model';
 })
 
 export class ChickensUpdateComponent implements OnInit {
-    id = this.rutaActiva.snapshot.params['id'];
-    chicken: any = {};
+    id : number;
+    idFarm : number;
+    chicken: Chicken;
 
     constructor(
         public restApi: RestApiService,
@@ -20,14 +21,17 @@ export class ChickensUpdateComponent implements OnInit {
         ) { }
 
    ngOnInit() {
-    this.restApi.getChickens(this.id)
-        .subscribe(data => this.chicken = data);
-       }
+    this.chicken = new Chicken(); 
+    this.id = this.rutaActiva.snapshot.params['idc']; 
+    this.idFarm = this.rutaActiva.snapshot.params['id']
+    
+   }
 
   updateChicken(){
     this.restApi.updateChicken(this.id,this.chicken)
         .subscribe(data => {
-        this.router.navigate(['/chickens-list',  this.rutaActiva.snapshot.params.id])
+        this.router.navigate(['/chickens-list', this.idFarm])
     });
+    this.chicken = new Chicken();
   }
 }

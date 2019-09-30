@@ -34,7 +34,7 @@
                 <span class="btn btn-outline-primary"  (click)="deleteChicken(chicken.id)">Delete</span>
               </td>
               <td>
-                <span class="btn btn-outline-primary" routerLink="/chickens-update/{{chicken.id}}">Update</span>
+                <span class="btn btn-outline-primary" (click)="updateChicken(chicken.id)">Update</span>
               </td>
             </tr>
           </tbody>
