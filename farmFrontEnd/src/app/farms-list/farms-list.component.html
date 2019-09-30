@@ -1,0 +1,32 @@
+<div class="container custom-container-2">
+
+ <div class="no-data text-center" *ngIf="Farms.length == 0">
+    <p>There are no farms added yet!</p>
+ </div>
+
+      <h3 class="mb-3 text-center">Farms List</h3>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="btn btn-outline-primary" routerLink="/farms-create" routerLinkActive="active">Create Farm</a>
+      </nav>
+      <br> <br>
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Amount of Chickens</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let farm of Farms">
+              <td>{{farm.id}}</td>
+              <td>{{farm.name}}</td>
+              <td>{{farm.cantChickens}}</td>
+              <td><a class="btn btn-outline-primary" [routerLink]="['/chickens-list', farm.id]" routerLinkActive="active">Show Chickens</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>

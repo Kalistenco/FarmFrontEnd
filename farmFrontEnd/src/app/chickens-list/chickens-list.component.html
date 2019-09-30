@@ -1,0 +1,45 @@
+<div class="container custom-container-2">
+    <div class="no-data text-center" *ngIf="Chickens.length == 0">
+      <p>There are no chickens added yet!</p>
+    </div>
+  
+      <h3 class="mb-3 text-center">Chickens List</h3>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <span class="btn btn-outline-primary" (click)= "createChicken()">Create Chicken</span>
+      </nav>
+      <br><br>
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Chicken Id</th>
+              <th scope="col">Amount of eggs</th>
+              <th scope="col">Weight</th>
+              <th scope="col">Color</th>
+              <th scope="col">Add Eggs</th>
+              <th scope="col">Delete Chicken</th>
+              <th scope="col">Update Chicken</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let chicken of Chickens">
+              <td>{{chicken.id}}</td>
+              <td>{{chicken.cantEggs}}</td>
+              <td>{{chicken.weight}}</td>
+              <td>{{chicken.color}}</td>
+              <td>
+                <span class="btn btn-outline-primary"  (click)="addEgg(chicken.id)">Add Egg</span>
+              </td>
+              <td>
+                <span class="btn btn-outline-primary"  (click)="deleteChicken(chicken.id)">Delete</span>
+              </td>
+              <td>
+                <span class="btn btn-outline-primary" routerLink="/chickens-update/{{chicken.id}}">Update</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+  
+  </div>
