@@ -22,6 +22,10 @@ export class RestApiService {
     return this.http.get<Farm>(this.apiUrl + '/farms'); 
   }
 
+  getFarm(id): Observable<Farm>{
+    return this.http.get<Farm>(this.apiUrl  + '/farms/' + id);
+  }
+
   addFarm(farm: Object): Observable<Object> {
     return this.http.post(this.apiUrl + '/farms', farm);
   }

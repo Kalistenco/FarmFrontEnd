@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../shared/rest-api.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Farm } from '../shared/farm.model';
 
 @Component({
   selector: 'app-chickens-list',
@@ -10,16 +11,23 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class ChickensListComponent implements OnInit {
   Chickens: any = [];
+  farm : Farm;
 
   constructor(public restApi: RestApiService, private rutaActiva: ActivatedRoute, public router: Router) { }
 
   ngOnInit() {
     this.loadChickens();
+    this.getFarm();
   }
 
   loadChickens() {
     return this.restApi.getChickens(this.rutaActiva.snapshot.params.id).subscribe(data => this.Chickens = data);
   }
+
+  getFarm(){
+    this.restApi.getFarm(this.rutaActiva.snapshot.params.id).subscribe(data => this.farm = data);
+  }
+  
 
   addEgg(id) {
     this.restApi.addEggs(id).subscribe(data => this.loadChickens());
