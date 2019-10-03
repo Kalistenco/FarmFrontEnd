@@ -26,7 +26,7 @@
               <td>{{chicken.id}}</td>
               <td>{{chicken.cantEggs}}</td>
               <td>{{chicken.weight}}</td>
-              <td>{{chicken.color}}</td>
+              <td id="colorChicken">{{chicken.color}}</td>
               <td>
                 <span class="btn btn-outline-primary"  (click)="addEgg(chicken.id)">Add Egg</span>
               </td>
@@ -35,6 +35,9 @@
               </td>
               <td>
                 <span class="btn btn-outline-primary" (click)="updateChicken(chicken.id)">Update</span>
+              </td>
+              <td>
+                <span class="btn btn-outline-primary" (click)="createChickensByEggs(chicken.id)">Birth</span>
               </td>
             </tr>
           </tbody>

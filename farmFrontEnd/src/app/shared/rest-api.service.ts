@@ -50,4 +50,14 @@ export class RestApiService {
     console.log(id, JSON.stringify(chicken));
     return this.http.post(this.apiUrl + '/chickens/' + id, chicken);
   }
+
+  deleteEggs(id):Observable<Chicken>{
+    return this.http.delete<Chicken>(this.apiUrl + '/chickens/' + id + '/eggs')
+  }
+
+  chickensByEggs(id, idc): Observable<object>{
+    return this.http.post(this.apiUrl + '/farms/' + id +'/chickens/' + idc, null);
+  }
+
+
 }

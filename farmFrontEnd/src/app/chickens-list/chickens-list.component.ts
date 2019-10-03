@@ -23,7 +23,7 @@ export class ChickensListComponent implements OnInit {
   loadChickens() {
     return this.restApi.getChickens(this.rutaActiva.snapshot.params.id).subscribe(data => this.Chickens = data);
   }
-
+  
   getFarm(){
     this.restApi.getFarm(this.rutaActiva.snapshot.params.id).subscribe(data => this.farm = data);
   }
@@ -32,6 +32,19 @@ export class ChickensListComponent implements OnInit {
   addEgg(id) {
     this.restApi.addEggs(id).subscribe(data => this.loadChickens());
   }
+
+  deleteEggs(id){
+    this.restApi.deleteEggs(id); //.subscribe(data => this.loadChickens());
+  }
+
+  createChickensByEggs(id){
+    
+    this.restApi.chickensByEggs(this.rutaActiva.snapshot.params.id, id).subscribe(data =>this.loadChickens())
+    this.restApi.deleteEggs(id)
+    .subscribe(data => this.loadChickens());
+  }
+
+  
 
   deleteChicken(id) {
     if(window.confirm('Are you sure you want to delete this chicken?')) {
